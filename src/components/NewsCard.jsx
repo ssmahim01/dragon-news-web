@@ -1,6 +1,7 @@
 import { AiFillEye } from 'react-icons/ai';
 import { AiFillStar } from 'react-icons/ai';
 import { FaRegBookmark, FaShareAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const NewsCard = (props = {}) => {
     const { news } = props || {};
@@ -42,7 +43,7 @@ const NewsCard = (props = {}) => {
             
             <p className="text-gray-500 font-medium mb-4">
                 {news.details.length > 100 ? news.details.substring(0, 250) + "..." : news.details}
-                <a href="#" className="text-orange-500 font-semibold ml-1">Read More</a>
+                <Link to={`/news/${news._id}`} href="#" className="text-orange-500 font-semibold ml-1">Read More</Link>
             </p>
             
             {/* Rating and Views */}

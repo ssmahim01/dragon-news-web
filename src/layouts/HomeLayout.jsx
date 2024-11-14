@@ -4,8 +4,17 @@ import LatestNews from "../components/LatestNews";
 import LeftNavbar from "../components/layout-component/leftNavbar";
 import RightNavbar from "../components/layout-component/RightNavbar";
 import Navbar from "../components/Navbar";
+import Loading from "../pages/Loading";
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
 const HomeLayout = () => {
+  const {loading} = useContext(AuthContext);
+
+  if(loading){
+    return <Loading></Loading>
+  };
+  
   return (
     <div className="font-poppins">
       <header>
