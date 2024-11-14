@@ -18,12 +18,12 @@ const HomeLayout = () => {
         <Navbar></Navbar>
       </nav>
 
-      <main className="w-11/12 mx-auto py-5 grid md:grid-cols-12 gap-6">
-        <aside className="left col-span-3">
+      <main className="w-11/12 mx-auto py-5 grid lg:grid-cols-12 gap-6">
+        <aside className="left lg:col-span-3 lg:w-full w-4/5 mx-auto">
           <LeftNavbar></LeftNavbar>
         </aside>
-        <section className="col-span-6"><Outlet></Outlet></section>
-        <aside className="col-span-3">
+        <section className="lg:col-span-6"><Outlet></Outlet></section>
+        <aside className="lg:col-span-3 lg:w-full w-4/5 mx-auto">
           <RightNavbar></RightNavbar>
         </aside>
       </main>

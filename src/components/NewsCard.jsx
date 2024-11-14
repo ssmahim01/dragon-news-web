@@ -27,7 +27,7 @@ const NewsCard = (props = {}) => {
         </div>
 
         <div>
-        <h2 className="pl-4 pr-40 pt-5 text-xl font-bold text-gray-900 mb-2">{news.title}</h2>
+        <h2 className="pl-4 md:pr-40 pr-5 pt-5 text-xl font-bold text-gray-900 mb-2">{news.title}</h2>
         </div>
 
        {/* Image */}
