@@ -7,8 +7,8 @@ const CategoryNews = () => {
 
     return (
         <div>
-            <h2 className="font-semibold mb-3">Dragon News Home</h2>
-            <p className="text-amber-500 font-semibold">{news.length} News found on this Category</p>
+            <h2 className="font-semibold mb-3 lg:text-left text-center">Dragon News Home</h2>
+            <p className="text-amber-500 font-semibold lg:text-left text-center">{news.length} News found on this Category</p>
 
             <div>
                 {

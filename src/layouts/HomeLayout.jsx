@@ -27,12 +27,15 @@ const HomeLayout = () => {
         <Navbar></Navbar>
       </nav>
 
-      <main className="w-11/12 mx-auto py-5 grid lg:grid-cols-12 gap-6">
+      <main className="w-11/12 mx-auto py-5 lg:grid lg:grid-cols-12 gap-6">
+      <aside className="lg:col-span-3 lg:w-full w-4/5 mx-auto lg:hidden block lg:mb-0 mb-5">
+          <RightNavbar></RightNavbar>
+        </aside>
         <aside className="left lg:col-span-3 lg:w-full w-4/5 mx-auto">
           <LeftNavbar></LeftNavbar>
         </aside>
         <section className="lg:col-span-6"><Outlet></Outlet></section>
-        <aside className="lg:col-span-3 lg:w-full w-4/5 mx-auto">
+        <aside className="lg:col-span-3 lg:w-full w-4/5 mx-auto lg:block hidden">
           <RightNavbar></RightNavbar>
         </aside>
       </main>
