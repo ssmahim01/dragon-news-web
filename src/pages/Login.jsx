@@ -15,12 +15,12 @@ const Login = () => {
     const email = form.get("email");
     const password = form.get("password");
 
-    console.log({ email, password });
+    // console.log({ email, password });
 
     userLogin(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
         setUser(user);
         navigate(location?.state ? location.state : "/");
       })
@@ -29,7 +29,7 @@ const Login = () => {
         const errorCode = err.code;
         const errorMessage = err.message;
 
-        console.log({ errorCode, errorMessage });
+        // console.log({ errorCode, errorMessage });
         setError({ ...error, login: errorCode });
       });
   };

@@ -26,19 +26,19 @@ const Register = () => {
       return;
     }
 
-    console.log({ name, photo, email, password });
+    // console.log({ name, photo, email, password });
 
     createNewUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
         setUser(user);
         updateUserProfile({displayName:name, photoURL:photo})
         .then(() => {
           navigate("/");
         })
         .catch(err => {
-          console.log(err);
+          // console.log(err);
         })
       })
 
@@ -46,7 +46,7 @@ const Register = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
 
-        console.log(errorCode, errorMessage);
+        // console.log(errorCode, errorMessage);
       });
   };
 
