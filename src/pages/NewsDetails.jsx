@@ -12,8 +12,8 @@ const NewsDetails = () => {
       <header>
         <Header></Header>
       </header>
-      <main className="w-11/12 mx-auto grid grid-cols-12 gap-5">
-        <section className="col-span-9">
+      <main className="w-11/12 mx-auto grid lg:grid-cols-12 gap-5">
+        <section className="lg:col-span-9 lg:w-full w-11/12 mx-auto">
           <h2 className="text-xl font-bold mb-3">Dragon News</h2>
 
           <div className="card bg-base-100 border border-gray-200 rounded-xl">
@@ -33,7 +33,7 @@ const NewsDetails = () => {
           </div>
         </section>
 
-        <aside className="col-span-3">
+        <aside className="lg:col-span-3 lg:w-full w-4/5 mx-auto">
           <RightNavbar></RightNavbar>
         </aside>
       </main>
