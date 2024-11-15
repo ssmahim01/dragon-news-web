@@ -4,16 +4,38 @@ import { ImGithub } from "react-icons/im";
 import { AuthContext } from "../provider/AuthProvider";
 
 const SocialLogin = () => {
-  const { logInWithGoogle, user } = useContext(AuthContext);
+  const { logInWithGoogle, user, logInWithGithub } = useContext(AuthContext);
 
   const handleGoogleLogin = () => {
     logInWithGoogle()
       .then((result) => {
-        // console.log(result.user);
+        // The signed-in user info.
+        const user = result.user;
+        // ...
       })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+      });
+  };
 
-      .catch((err) => {
-        // console.log(err.message);
+  const handleGitHubLogin = () => {
+    logInWithGithub()
+      .then((result) => {
+        // The signed-in user info.
+        const user = result.user;
+        // ...
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // ...
       });
   };
 
@@ -33,7 +55,10 @@ const SocialLogin = () => {
               Login With Google
             </span>
           </button>
-          <button className="btn border-2 border-gray-500 rounded-lg">
+          <button
+            onClick={handleGitHubLogin}
+            className="btn border-2 border-gray-500 rounded-lg"
+          >
             <span className="text-lg">
               <ImGithub />
             </span>

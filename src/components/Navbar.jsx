@@ -58,7 +58,7 @@ const Navbar = () => {
           {user && user?.email ? (
             <div>
               <img
-                className="w-14 mx-auto rounded-full border-2 border-gray-400"
+                className="w-14 h-14 mx-auto rounded-full border-2 border-gray-400"
                 src={user?.photoURL}
                 alt={user?.displayName}
               />
@@ -67,7 +67,7 @@ const Navbar = () => {
             <img src={userIcon} alt="Icon of user" />
           )}
         </div>
-        {user && user?.email ? (
+        {user ? (
           <button
             onClick={logOut}
             className="btn btn-error rounded-none text-white font-semibold"
