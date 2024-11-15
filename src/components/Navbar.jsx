@@ -8,9 +8,11 @@ const Navbar = () => {
 
   return (
     <div className="flex justify-between items-center">
-      <div className="text-gray-600 font-semibold hidden md:block">
-        {user && user.email}
+      <div className="text-xs hidden md:block">
+      <p className="font-bold">{user?.displayName}</p>
+        <p className="text-gray-600 font-semibold">{user && user.email}</p>
       </div>
+
       <div className="nav space-x-5 font-semibold">
         <Link to="/">Home</Link>
         <Link to="/career">Career</Link>
@@ -20,8 +22,7 @@ const Navbar = () => {
         <div>
           {user && user?.email ? (
             <div>
-              <img className="w-14 rounded-full" src={user?.photoURL} alt={user?.displayName} />
-              <p className="font-bold">{user?.displayName}</p>
+              <img className="w-14 mx-auto rounded-full" src={user?.photoURL} alt={user?.displayName} />
             </div>
           ) : (
             <img src={userIcon} alt="Icon of user" />
