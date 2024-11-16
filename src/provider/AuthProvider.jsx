@@ -1,8 +1,9 @@
 import { createContext, useEffect, useState } from "react";
 // Initialize Firebase Authentication and get a reference to the service
-import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 
 import app from "../firebase/firebase.config";
+import { toast } from "react-toastify";
 export const AuthContext = createContext();
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider;
@@ -35,11 +36,18 @@ const AuthProvider = ({ children }) => {
 
     const logOut = () => {
         setLoading(true);
+        toast.success("Logout success", {
+            position: "top-center"
+        });
         return signOut(auth);
     };
 
     const updateUserProfile = (updatedData) => {
         return updateProfile(auth.currentUser, updatedData);
+    };
+
+    const userResetEmail = (email) => {
+        return sendPasswordResetEmail(auth, email);
     };
 
     const authInfo = {
@@ -51,7 +59,8 @@ const AuthProvider = ({ children }) => {
         logInWithGoogle,
         logInWithGithub,
         logOut,
-        updateUserProfile
+        updateUserProfile,
+        userResetEmail
     };
 
     useEffect(() => {

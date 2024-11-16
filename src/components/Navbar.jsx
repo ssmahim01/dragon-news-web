@@ -15,7 +15,7 @@ const Navbar = () => {
 
       <div className="navbar-start md:hidden block">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle bg-cyan-500 rounded-xl text-white">
+          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle border-2 border-gray-200 rounded-xl">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"

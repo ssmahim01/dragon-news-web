@@ -12,7 +12,7 @@ const NewsDetails = () => {
       <header>
         <Header></Header>
       </header>
-      <main className="w-11/12 mx-auto grid lg:grid-cols-12 gap-5">
+      <main className="lg:w-11/12 w-full mx-auto grid lg:grid-cols-12 gap-5">
         <section className="lg:col-span-9 lg:w-full w-11/12 mx-auto">
           <h2 className="text-xl font-bold mb-3">Dragon News</h2>
 

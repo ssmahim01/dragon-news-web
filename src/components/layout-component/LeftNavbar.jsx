@@ -13,9 +13,9 @@ const [categories, setCategories] = useState([]);
   return (
     <div>
       <h2 className="font-semibold">All Category ({categories.length})</h2>
-      <div className="flex flex-col gap-2 my-4">
+      <div className="flex lg:flex-col lg:flex-nowrap flex-wrap lg:justify-start justify-center gap-2 my-8">
         {categories.map((category) => (
-          <NavLink to={`/category/${category.category_id}`} key={category.category_id} className="btn">{category.category_name}</NavLink>
+          <NavLink to={`/category/${category.category_id}`} key={category.category_id} className={({isActive}) => `btn ${isActive? "btn-accent text-white" : "btn-ghost"}`}>{category.category_name}</NavLink>
         ))}
       </div>
     </div>

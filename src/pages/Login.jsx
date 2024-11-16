@@ -1,10 +1,12 @@
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Login = () => {
-  const { userLogin, setUser } = useContext(AuthContext);
+  const { userLogin, setUser, userResetEmail } = useContext(AuthContext);
   const [error, setError] = useState({});
+  const emailRef = useRef();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -22,16 +24,35 @@ const Login = () => {
         const user = result.user;
         // console.log(user);
         setUser(user);
+        toast.success(`${user.displayName} successfully Login`, {
+          position: "top-center"
+        });
         navigate(location?.state ? location.state : "/");
       })
 
       .catch((err) => {
         const errorCode = err.code;
         const errorMessage = err.message;
+        toast.error("Login Failed");
 
         // console.log({ errorCode, errorMessage });
         setError({ ...error, login: errorCode });
       });
+  };
+
+  const handleForgetPassword = () => {
+    const emailField = emailRef.current.value;
+    if(emailField){
+      userResetEmail(emailField)
+      .then(() => {
+        toast.success("Sent Reset Email", {
+          position: "top-center"
+        });
+      })
+    }
+    else{
+      toast.error("Provide a valid email address");
+    }
   };
 
   return (
@@ -48,6 +69,7 @@ const Login = () => {
             <input
               type="email"
               name="email"
+              ref={emailRef}
               placeholder="email"
               className="input input-bordered"
               required
@@ -68,7 +90,7 @@ const Login = () => {
             {error.login && <label className="label text-xs text-rose-500 font-semibold">{error.login}</label>}
 
             <label className="label">
-              <a href="#" className="label-text-alt link link-hover">
+              <a onClick={handleForgetPassword} className="label-text-alt link link-hover">
                 Forgot password?
               </a>
             </label>

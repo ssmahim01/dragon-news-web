@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const { createNewUser, setUser, updateUserProfile } = useContext(AuthContext);
@@ -33,20 +34,23 @@ const Register = () => {
         const user = result.user;
         // console.log(user);
         setUser(user);
+        toast.success(`${user.displayName} successfully Registered`);
         updateUserProfile({displayName:name, photoURL:photo})
         .then(() => {
           navigate("/");
         })
         .catch(err => {
           // console.log(err);
+          toast.error("User profile update is failed");
         })
       })
 
       .catch((error) => {
-        const errorCode = error.code;
+        // const errorCode = error.code;
         const errorMessage = error.message;
 
         // console.log(errorCode, errorMessage);
+        toast.error("Failed to Register");
       });
   };
 
