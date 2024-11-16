@@ -34,7 +34,9 @@ const Register = () => {
         const user = result.user;
         // console.log(user);
         setUser(user);
-        toast.success(`${user.displayName} successfully Registered`);
+        toast.success("Successfully Registered", {
+          position: "top-center"
+        });
         updateUserProfile({displayName:name, photoURL:photo})
         .then(() => {
           navigate("/");
